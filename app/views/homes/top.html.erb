@@ -1,1 +1,13 @@
 <h1>ようこそaa2</h1>
+
+
+<ul>
+  <%if user_signed_in? %>
+    <li><%=current_user.email%></li>
+    <li><%=current_user.name.uid%></li>
+
+    <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+  <%else%>
+    <li><%= link_to "Twitterでログイン", user_twitter_omniauth_authorize_path %></li>
+  <%end%>
+</ul>
